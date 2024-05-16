@@ -1,0 +1,11 @@
+*school-id,name
+*classes-id,name,
+*employees-id,name,position,sch id
+teachers-id,name,employee id,class id
+*dormitories-id,name,sch id,
+*students-id,name,sch id,dorm id,class id,
+parents-id,name,stud id,
+*accounts office-id,sch id,stud id,
+*library-id,name,
+grades-id,stud id
+
