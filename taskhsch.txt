@@ -1,11 +1,20 @@
-*school-id,name
-*classes-id,name,
-*employees-id,name,position,sch id
-teachers-id,name,employee id,class id
-*dormitories-id,name,sch id,
-*students-id,name,sch id,dorm id,class id,
-parents-id,name,stud id,
-*accounts office-id,sch id,stud id,
-*library-id,name,
-grades-id,stud id
-
+schbranches-id,name,location,
+dormitories-id,name,schbranches_id
+classes-id,name,schbranches_id
+subjects-id,name,schbranches_id
+exams-id,name,subjects_id,
+students-id,name,subjects_id,exams_id,classes_id,extracurricular_id,dormitories_id,
+results-id,exams_id,students_id,
+fees-id,name,students_id,
+parents-id,name,students_id,
+staff-id,name,schbranches_id,
+teachers-id,name,staff_id,subjects_id,class_id,
+stores-id,name,staff_id,
+*extracurricular-id,name,schbranches_id
+sports-id,name,extracurricular-id
+sportsteam-id,sports_id,students_id,teachers_id,
+schedule-id,name,subjects_id,
+library-id,name,students_id,
+books-id,name,library_id,
+equipment-id,name,staff_id,
+mealplan-id,students_id
