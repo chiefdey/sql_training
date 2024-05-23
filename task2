@@ -1,0 +1,35 @@
+q.products ordered and shippername.
+
+SELECT productname,shippername FROM (((OrderDetails
+inner join products on products.productid = orderdetails.productid)
+inner join orders on orderdetails.orderid =orders.orderid)
+inner join shippers on orders.shipperid = shippers.shipperid);
+
+q.count orders shipped by each shipper.
+
+SELECT COUNT(productname) as no_of_orders, shippername FROM (((OrderDetails
+inner join products on products.productid = orderdetails.productid)
+inner join orders on orderdetails.orderid =orders.orderid)
+inner join shippers on orders.shipperid = shippers.shipperid)
+group by shippername;
+
+q. customers with no "son" in their name:
+
+SELECT COUNT(Customername) FROM Customers
+WHERE Customername LIKE '%son%';
+
+Q.total sales in 1997
+
+SELECT SUM( products.price*orderdetails.quantity) AS 1997_sales FROM (((OrderDetails
+inner join products on products.productid = orderdetails.productid)
+inner join orders on orderdetails.orderid =orders.orderid)
+inner join shippers on orders.shipperid = shippers.shipperid)
+WHERE Orders.Orderdate BETWEEN #01/1/1997# AND #12/31/1997#;
+
+Q.Customers name and total money spent in business.
+SELECT SUM(products.price*orderdetails.quantity) as total_amount , customername FROM (((OrderDetails
+inner join products on products.productid = orderdetails.productid)
+inner join orders on orderdetails.orderid = orders.orderid)
+inner join customers on customers.customerid = orders.customerid)
+Group by customers.customername
+order by SUM(products.price*orderdetails.quantity) desc;
