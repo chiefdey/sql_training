@@ -1,0 +1,14 @@
+Q.insert customers.
+ insert into customers (customername, contactname, address, city, postalcode, country) values ('denis muriithi','Cream Ale', '30st', 'nairobi', 1080, 'kenya');
+Q.insert order for customer above
+insert into orders (customerid, employeeid, orderdate, shipperid) values (17,3, '3/3/2024',3);
+Q.insert new product
+ insert into products ( productname, supplierid, categoryid, unit, price) values ('captain morgan',3,3,30,350);
+Q.insert orderdetail using above order and product.
+ insert into orderdetails ( orderid, productid, quantity) values (31,31,351);
+Q.DELETE customer whose ID is 15
+DELETE FROM customers WHERE customerid=15;
+Q.Best performing month(group by)
+SELECT SUBSTR(orderdate,1,2) AS months_performance, SUM( products.price*orderdetails.quantity) FROM Orders 
+INNER JOIN orderdetails on orderdetails.orderid=orders.orderid INNER JOIN products on products.productid=orderdetails.productid 
+GROUP BY months_performance  ORDER BY sum DESC;
